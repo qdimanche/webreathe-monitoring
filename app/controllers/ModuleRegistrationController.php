@@ -3,13 +3,12 @@ global $pdo;
 require_once "../../config/database.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
     $createTableSql = "
-    CREATE TABLE IF NOT EXISTS modules (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(100),
-        type VARCHAR(100)
-    )
+        CREATE TABLE IF NOT EXISTS modules (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            name VARCHAR(100),
+            type VARCHAR(100)
+        )
     ";
 
     $type = $_POST["type"];
@@ -20,17 +19,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $insertStmt->bindParam(':type', $type);
     $insertStmt->bindParam(':name', $name);
 
-    if ($type == "temperature") {
-        require_once(__DIR__ . "/TemperatureController.php");
-    } else if ($type == "brightness") {
-        require_once(__DIR__ . "/BrightnessController.php");
-    } else if ($type == "vibration") {
-        require_once(__DIR__ . "/VibrationController.php");
-    }
-
-    if ($createStmt->execute() && $insertStmt->execute()) {
-        header("location:../../index.php");
+    if ($createStmt->execute()) {
+        if ($insertStmt->execute()){
+            $moduleId = $pdo->lastInsertId();
+            if ($type == "temperature") {
+                require_once(__DIR__ . "/TemperatureController.php");
+            } else if ($type == "brightness") {
+                require_once(__DIR__ . "/BrightnessController.php");
+            } else if ($type == "vibration") {
+                require_once(__DIR__ . "/VibrationController.php");
+            }
+            header("location:../../index.php");
+        }
     } else {
-        header("location:../module-registration.php");
+        header("location:../registration.php");
     }
 }

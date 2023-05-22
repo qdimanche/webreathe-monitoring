@@ -1,7 +1,7 @@
 <?php
 $content = '  
   <div class="vh-100 d-flex justify-content-center align-items-center">
-  <form class="" method="post" action="../controllers/ModuleRegistrationController.php">
+  <form class="" method="post" action="../../controllers/ModuleRegistrationController.php">
   <div class="form-group">
     <label for="name">Name</label>
     <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" required>
@@ -19,4 +19,4 @@ $content = '
 </div>
 ';
 
-require_once '../../templates/layout.php';
+require_once '../../../templates/layout.php';
