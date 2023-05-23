@@ -1,3 +1,5 @@
+<?php require_once "../app/includes/module-collection.php"?>
+
 <html>
 <head>
     <title>Webreathe - Monitoring</title>

@@ -7,17 +7,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         CREATE TABLE IF NOT EXISTS modules (
             id INT AUTO_INCREMENT PRIMARY KEY,
             name VARCHAR(100),
-            type VARCHAR(100)
+            type VARCHAR(100),
+            status VARCHAR(10)
         )
     ";
 
     $type = $_POST["type"];
     $name = $_POST["name"];
-    $insertSql = "INSERT INTO modules(name, type) VALUES (:name, :type)";
+    $status = "active";
+    $insertSql = "INSERT INTO modules(name, type, status) VALUES (:name, :type, :status)";
     $createStmt = $pdo->prepare($createTableSql);
     $insertStmt = $pdo->prepare($insertSql);
     $insertStmt->bindParam(':type', $type);
     $insertStmt->bindParam(':name', $name);
+    $insertStmt->bindParam(':status', $status);
 
     if ($createStmt->execute()) {
         if ($insertStmt->execute()){
