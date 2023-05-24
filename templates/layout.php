@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <html>
 <head>
     <title>Webreathe - Monitoring</title>
@@ -6,6 +8,8 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment@2.27.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@0.1.1"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <body>
 
 <?php include(dirname(__DIR__) . '/app/components/navbar.php') ?>
