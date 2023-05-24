@@ -30,7 +30,7 @@ if ($createStmt->execute()) {
                   <th scope="row">' . $name . '</th>
                   <th scope="row">' . $type . '</th>
                   <th scope="row">
-                    <a href="./details.php?moduleId='.urlencode($id).'&type='.urlencode($type).'" class="btn btn-primary">View</a>
+                    <a href="./details.php?type='.urlencode($type).'" class="btn btn-primary">View</a>
                   </th>
                 </tr>
               </tbody>
