@@ -69,7 +69,7 @@ function generateValue() {
         data: { generate: generateValue },
         success: function(response) {
             console.log(response);
-            location.reload(); // Recharger la page après la mise à jour de la session
+            location.reload(); 
         },
         error: function(xhr, status, error) {
             console.log(error);
