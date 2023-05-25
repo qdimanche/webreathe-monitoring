@@ -1,7 +1,17 @@
 <?php
 global $chartData;
+global $type;
 
-echo '<script>
+if ($type == "temperature") {
+    $value = "Degrés Celsius";
+} else if ($type == "vibration") {
+    $value = "m/s²";
+} else {
+    $value = "Lux";
+}
+
+echo '
+<script>
     var ctx = document.getElementById("myGraph").getContext("2d");
     var chartData = ' . json_encode($chartData) . ';
 
@@ -9,10 +19,10 @@ echo '<script>
         type: "line",
         data: {
             datasets: [{
-                label: "Valeur",
+                label: "'.$value.'",
                 data: chartData,
                 fill: false,
-                borderColor: "rgb(75, 192, 192)",
+                borderColor: "#256AF6",
                 tension: 0.1
             }]
         },
@@ -26,6 +36,10 @@ echo '<script>
                             hour: "HH:mm"
                         }
                     },
+                    ticks: {
+                        autoSkip: true,
+                        maxTicksLimit: 10
+                    },
                     title: {
                         display: true,
                         text: "Date de prélèvement"
@@ -34,12 +48,12 @@ echo '<script>
                 y: {
                     title: {
                         display: true,
-                        text: "Valeur"
+                        text: "'.$value.'"
                     }
                 }
-            },
+            }
         }
     });
-    </script>';
-
-
+</script>
+';
+?>

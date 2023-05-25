@@ -1,0 +1,29 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+
+span {
+    font-weight: bold;
+}
+
+.background-color-primary {
+    background-color: #256AF6 !important;
+    color: white !important;
+}
+
+.background-color-secondary {
+    background-color: #F5B425 !important;
+    color: white !important;
+}
+
+.mt-10 {
+    margin-top: 6rem;
+}
+
+.mb-10 {
+    margin-bottom: 6rem;
+}
