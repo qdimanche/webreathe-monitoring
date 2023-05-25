@@ -15,7 +15,7 @@
 
 <?php include(dirname(__DIR__) . '/app/components/navbar.php') ?>
 <main class="container position-relative mt-10 mb-10">
-    <?php echo isset($content) ? $content : ''; ?>
+    <?php echo $content ?? ''; ?>
 </main>
 
 <?php include(dirname(__DIR__) . '/app/components/footer.php') ?>

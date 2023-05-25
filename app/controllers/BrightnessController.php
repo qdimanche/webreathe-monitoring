@@ -1,6 +1,6 @@
 <?php
 global $pdo;
-require_once "/Applications/MAMP/htdocs/Webreathe/config/database.php";
+require_once "../../config/database.php";
 date_default_timezone_set('Europe/Paris');
 
 

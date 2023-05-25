@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $insertStmt->bindParam(':name', $name);
 
     if ($createStmt->execute()) {
-        if ($insertStmt->execute()){
+        if ($insertStmt->execute()) {
             $moduleId = $pdo->lastInsertId();
             if ($type == "temperature") {
                 require_once(__DIR__ . "/TemperatureController.php");
